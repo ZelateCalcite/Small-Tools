@@ -39,3 +39,8 @@ sunlight and glow into other lives as naturally as bird sings.
     print(article)
     print(' '.join([ul_random_shuffle(word) for word in article.split(' ')]))
     print(' '.join([ul_interval_shuffle(word) for word in article.split(' ')]))
+    f = open('./1.txt', 'w', encoding='utf-8')
+    f.write(article)
+    f.write(' '.join([ul_random_shuffle(word) for word in article.split(' ')]))
+    f.write(' '.join([ul_interval_shuffle(word) for word in article.split(' ')]))
+    f.close()
