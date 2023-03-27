@@ -21,4 +21,4 @@ Documenting the process of solving real-word problems by Python, each written in
 >> **Introduction:** To count all commits belong to the git.  
 >> The result will be exported as ```.csv``` file.  
 >> **Use:**
->> Run ```get_all_commit.exe```, input git ```url```, your private ```token``` and export ```address```.
+>> Run ```get_all_commit.exe```, input git ```url```, your private ```token``` and export ```address```
