@@ -1,5 +1,5 @@
 # Small-Tools
-Some useful tools, each written in one Python file
+Documenting the process of solving real-word problems by Python, each written in one Python file
 
 > # *1. image_processing*
 >> ## 1.1 png_to_jpg.py
