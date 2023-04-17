@@ -1,5 +1,5 @@
 # Small-Tools
-Some useful tools, each written in one Python file
+Documenting the process of solving real-word problems by Python, each written in one Python file
 
 > # *1. image_processing*
 >> ## 1.1 png_to_jpg.py
@@ -21,4 +21,4 @@ Some useful tools, each written in one Python file
 >> **Introduction:** To count all commits belong to the git.  
 >> The result will be exported as ```.csv``` file.  
 >> **Use:**
->> Run ```get_all_commit.exe```, input git ```url```, your private ```token``` and export ```address```.
+>> Run ```get_all_commit.exe```, input git ```url```, your private ```token``` and export ```address```
