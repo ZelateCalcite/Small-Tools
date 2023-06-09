@@ -12,7 +12,7 @@ from random import randint
 
 wb = Workbook()
 # ws = wb.create_sheet('test', 0)
-font = Font(name='Arial', color='CCCCCC', size=14, italic=True)
+font = Font(name='宋体', color='CCCCCC', size=14, italic=True)
 thin = Side(border_style='thin', color='000000')
 border = Border(top=thin, left=thin, right=thin, bottom=thin)
 fill = PatternFill('solid', fgColor='DDDDDD')
