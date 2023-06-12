@@ -32,7 +32,7 @@ class Operator:
                 li = []
                 for row_index, cell in enumerate(col):
                     li.append({
-                        'value': cell.value,
+                        'value': str(cell.value) if cell.value is not None else None,
                         'row': row_index + 1,
                         'col': col_index + 1,
                         'style': Styles()
