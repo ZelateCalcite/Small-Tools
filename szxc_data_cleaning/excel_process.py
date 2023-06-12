@@ -38,7 +38,7 @@ class Operator:
                         'style': Styles()
                     })
                 self.import_data[li[0]['value']] = li[:]
-            break  # just read the first one
+            break  # just read the first sheet
         return self.import_data
 
     def export_excel(self,
