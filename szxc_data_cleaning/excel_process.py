@@ -32,7 +32,7 @@ class Operator:
                 li = []
                 for row_index, cell in enumerate(col):
                     li.append({
-                        'value': str(cell.value) if cell.value is not None else None,
+                        'value': cell.value,
                         'row': row_index + 1,
                         'col': col_index + 1,
                         'style': Styles()
@@ -67,14 +67,8 @@ class Operator:
         print('输出为' + filename)
         print('----------\t输出完成\t----------')
 
-# if __name__ == '__main__':
-#     print(import_excel('./tests/test_import.xlsx'))
-#     test = []
-#     for i in range(1, 100, 1):
-#         for j in range(1, i + 1):
-#             test.append({
-#                 'value': i+j,
-#                 'row': i,
-#                 'col': j
-#             })
-#     export_excel(test, filename='tests/test.xlsx')
+
+if __name__ == '__main__':
+    operator = Operator()
+    print(operator.import_excel('./tests/test_import.xlsx'))
+    operator.export_excel(filename='tests/test.xlsx')
