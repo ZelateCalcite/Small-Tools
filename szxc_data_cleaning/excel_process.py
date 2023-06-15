@@ -45,7 +45,7 @@ class Operator:
                      title='sheet 0',
                      filename='new excel.xlsx',
                      ):
-        print('----------\t处理中\t----------')
+        print('==========\t处理中\t==========')
         wb = Workbook()
         ws = wb.active
         ws.title = title
@@ -65,7 +65,7 @@ class Operator:
         wb.save(filename)
         wb.close()
         print('输出为' + filename)
-        print('----------\t输出完成\t----------')
+        print('==========\t输出完成\t==========')
 
 
 if __name__ == '__main__':

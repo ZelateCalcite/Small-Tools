@@ -3,6 +3,8 @@ from excel_process import Operator
 from warnings import simplefilter
 from re import search, sub
 from custom_check import zzxx, hjrk, jtfw, czfjtfw, czffjtfw, xsm, qyxx, xxnyjyzt, cfxx, tdxx, dyxx, xmgl, mqrj, zlgl
+from traceback import print_exc
+from io import StringIO
 
 simplefilter('ignore')
 
@@ -150,7 +152,7 @@ def check_value(filename, operator):
 
 
 def main():
-    files = ReadDir('./tests/import', '.xlsx', file_sort, data_reg).file_list
+    files = ReadDir('./tests/real', '.xlsx', file_sort, data_reg).file_list
     all_data = {}
     available = {}
 
@@ -163,8 +165,13 @@ def main():
                 all_data[filetype] = operator
             else:
                 print('存在重复{0}模板'.format(filetype))
-                return 10002
-    print('---\t正在检查文件关联性\t---')
+                return -10002
+
+    if len(all_data) == 0:
+        print('===\t未读取到文件 请检查文件模板命名和文件后缀名\t===')
+        return -10000
+
+    print('===\t正在检查文件关联性\t===')
     for key in all_data.keys():
         v, m = check_relation_file(key, all_data, relations)
         if not v:
@@ -172,14 +179,35 @@ def main():
         else:
             available.update({key: all_data[key]})
     if len(available) == len(all_data):
-        print('无关联文件缺失')
+        print('无关联文件缺失\n')
+
+    if len(available) == 0:
+        print('===\t无可校验文件\t===')
+        return -10001
+
+    print('===\t已读入数据\t===')
+    for i in available.keys():
+        print(i)
+    print('===\t开始处理\t===')
+    fp = StringIO()
 
     for filename, filedata in available.items():
         try:
             filedata.export_data = check_value(filename, filedata)
             filedata.export_excel(filename=filename+'_导出模板.xlsx')
         except BaseException as error:
+            print('\033[91m发生错误: \033[0m' + filename + '_导入模板, ', end='')
             print(error)
+            print_exc(file=fp)
+
+    wrong_info = fp.getvalue()
+    if wrong_info:
+        print('\n\033[93m详细错误信息\033[0m')
+        print(fp.getvalue())
+
+    print('===\t处理完成\t===')
+    return 0
 
 
 main()
+input('按下Enter键退出')
