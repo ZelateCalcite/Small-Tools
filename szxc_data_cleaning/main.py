@@ -152,7 +152,7 @@ def check_value(filename, operator):
 
 
 def main():
-    files = ReadDir('./tests/real', '.xlsx', file_sort, data_reg).file_list
+    files = ReadDir('./', '.xlsx', file_sort, data_reg).file_list
     all_data = {}
     available = {}
 
