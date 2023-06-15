@@ -194,7 +194,7 @@ def main():
     for filename, filedata in available.items():
         try:
             filedata.export_data = check_value(filename, filedata)
-            filedata.export_excel(filename=filename+'_导出模板.xlsx')
+            filedata.export_excel(filename='校验_'+filename+'_导出模板.xlsx')
         except BaseException as error:
             print('\033[91m发生错误: \033[0m' + filename + '_导入模板, ', end='')
             print(error)

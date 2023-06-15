@@ -6,12 +6,30 @@ Learn lib `openpyxl`
 * https://www.jianshu.com/p/642456aa93e2
 * https://openpyxl.readthedocs.io/en/stable
 
+## Build
+   ```
+   pyinstaller -F main.py --hidden-import=openpyxl -n verison.exe
+   ```
+
 ## Problems
 
 1. No code completion for lib `openpyxl` in PyCharm
 
-* Windows:    Delete ```C:\Program Files\JetBrains\PyCharm 2022.1.3\plugins\python\helpers\typeshed\stubs\openpyxl```
-* MacOS:      ```rm -r /Applications/PyCharm.app/Contents/plugins/python/helpers/typeshed/stubs/openpyxl```
+   * Windows:    Delete ```C:\Program Files\JetBrains\PyCharm 2022.1.3\plugins\python\helpers\typeshed\stubs\openpyxl```
+   * MacOS:      ```rm -r /Applications/PyCharm.app/Contents/plugins/python/helpers/typeshed/stubs/openpyxl```
+
+2. ModuleNotFoundError `openpyxl`
+   * pyinstaller may have problems to find `openpyxl`
+   ```
+   Traceback (most recent call last):
+   File "main.py", line 2, in <module>
+   File "PyInstaller\loader\pyimod03_importers.py", line 495, in exec_module
+   File "excel_process.py", line 1, in <module>
+   ModuleNotFoundError: No module named 'openpyxl'
+   Failed to execute script 'main' due to unhandled exception!
+   ```
+   Use `pip list` to check if `openpyxl` is correctly installed in pip.
+   
 
 ## Key Variable
 
