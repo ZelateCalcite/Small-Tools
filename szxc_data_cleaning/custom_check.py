@@ -222,7 +222,8 @@ def year_check(data: list, require=False):
                 if not type_number(i['value']):
                     fill('type', i)
                     continue
-                if not (1900 <= eval(i['value']) <= 2999):
+                temp = str(i['value'])
+                if not (1900 <= eval(temp) <= 2999):
                     fill('date', i)
             else:
                 if require:
